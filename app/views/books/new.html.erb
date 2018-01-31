@@ -5,10 +5,14 @@
   <input type='text' placeholder='Enter a Title...' name='book[title]' />
   <input type='text' placeholder='Enter a Snippet...' name='book[snippet]' />
   <!-- <input type='text' placeholder='Enter an Author ID...' name='book[author_id]' /> -->
+  <p>Choose an existing Author...</p>
   <select name="book[author_id]">
     <% @authors.each do |author| %>
       <option value="<%= author.id %>"><%= author.name %></option>
     <% end %>
   </select>
+  <p>..Or Create a New One</p>
+  <input type="text" placeholder="Author Name..." name="book[author_attributes]">
+
   <input type='submit' value="Create Book" />
 </form>

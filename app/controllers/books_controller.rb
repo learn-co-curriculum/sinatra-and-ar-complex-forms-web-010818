@@ -16,7 +16,15 @@ class BooksController < ApplicationController
   end
 
   post '/books' do
-    book = Book.create(params[:book])
+    # if params[:author][:name].empty?
+    #   book = Book.create(params[:book])
+    # else
+    #   author = Author.create(params[:author])
+    #   book = author.books.create(title: params[:book][:title], snippet: params[:book][:snippet])
+    # end
+
+    book = Book.new(params[:book])
+    book.save
 
     redirect "/books/#{book.id}"
   end
